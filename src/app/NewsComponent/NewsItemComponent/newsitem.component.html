@@ -1,0 +1,14 @@
+<ul *ngFor = "let news of newsToDisplay" class="newsList">
+    <li>
+        <div class='newsItem'>
+            <img [src]="news.multimedia[0].url">
+            Title: {{news.title}}<br>
+            <br>
+            Abstract: {{news.abstract}}<br>
+            <div id="readmore">
+                <a class="button" [href]="news.url">Read More...</a>
+            </div>
+        </div>
+    </li>
+</ul>
+<span>this is from newsitem html</span>

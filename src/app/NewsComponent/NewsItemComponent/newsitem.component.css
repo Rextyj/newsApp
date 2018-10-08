@@ -1,0 +1,15 @@
+.newsItem {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.newsList{
+    list-style-type: none;
+    padding: 15px;
+}
+
+#readmore{
+    text-align: right;
+    margin: 5px;
+}

@@ -1,0 +1,11 @@
+.newsItemSection{
+    border-style: dashed;
+    border-width: 2px;
+    border-radius: 5px;
+}
+
+.routerOutlet{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+}

@@ -1,0 +1,10 @@
+this is navbar
+<div class="btn-group btn-group-justified" role="group">
+    <ul *ngFor="let item of subsections" class="nav nav-pills nav-stacked">
+        <li class="navbarItem">
+            <button (click)="onFilter(item)">{{item}}</button>
+        </li>
+    </ul>
+
+</div>
+
