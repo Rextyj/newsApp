@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Store} from '@ngrx/store';
 import { NewsState } from './Store/state';
 import { LOAD_SECTION_NEWS } from './Store/action';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,10 @@ export class AppComponent {
   //     this.data = data;
   //   });
   // }
+
+  constructor(private router: Router){
+    this.router.navigate(['section', 'home']);
+  }
 
   getNewsList() {
     console.log("action triggered");

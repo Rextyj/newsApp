@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import {GetSectionsService} from '../Services/get-section.service';
-import {ActivatedRoute} from '@angular/router'
+import {ActivatedRoute, Router} from '@angular/router'
 
 @Component({
   selector: 'my-section',
@@ -11,7 +11,7 @@ import {ActivatedRoute} from '@angular/router'
 export class SectionComponent implements OnInit{
     
     sections: Array<Object>;
-  constructor(private getSectionsService: GetSectionsService){
+  constructor(private getSectionsService: GetSectionsService, private router: Router){
     this.sections = [{'name': 'home', 'path': '/section/home'},
     {'name': 'opinion', 'path': '/section/opinion'},
     {'name': 'world', 'path': '/section/world'},

@@ -13,13 +13,14 @@ import { loadNewsList } from '../Store/action';
 export class NewsComponent implements OnInit {
     list;
     sectionName: string;
-    constructor(private route: ActivatedRoute, 
+    constructor(private route: ActivatedRoute,
         private getSectionsService: GetSectionsService,
         private router: Router,
         private store: Store<any>) { }
 
 
     ngOnInit() {
+        //the news component is only initiallized when the route is changed to section/sectionName
         this.router.events.subscribe((event) => {
             // console.log(event);
             //when an routing event is detected
@@ -30,19 +31,27 @@ export class NewsComponent implements OnInit {
                 //get the list of news according to the new section name
                 this.sectionName = this.route.snapshot.params['sectionName'];
                 this.getSectionsService.getSectionNews(this.sectionName)
-                    .subscribe(result => { this.list = result.results; 
-                                            console.log(this.list); 
-                                            this.store.dispatch(loadNewsList(this.list))
+                    .subscribe(result => {
+                    this.list = result.results;
+                        console.log(this.list);
+                        this.store.dispatch(loadNewsList(this.list));
                     },
                         err => { console.log('Error occured') });
 
-                
             }
 
         });
-        
-        
-        
+
+        // for the initial data pull, we need to call the api for once
+        this.getSectionsService.getSectionNews('home')
+            .subscribe(result => {
+            this.list = result.results;
+                console.log(this.list);
+                this.store.dispatch(loadNewsList(this.list));
+            },
+                err => { console.log('Error occured') });
+
+
     }
 
 
